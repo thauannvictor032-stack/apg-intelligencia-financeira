@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <title>APG Intelligence Financeiro</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #07111f;
+      color: #edf4ff;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 22px 16px;
+      background: #0d1b2d;
+      border-bottom: 1px solid #233851;
+    }
+    .brand { color: #56c8ff; font-size: 12px; letter-spacing: 3px; }
+    h1 { font-size: 23px; margin: 9px 0; }
+    .sub { color: #9eb2ca; font-size: 13px; }
+    main { padding: 16px; max-width: 1000px; margin: auto; }
+    .status {
+      border: 1px solid #28513f;
+      background: #102a25;
+      color: #7de4b0;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    h2 { font-size: 17px; margin-top: 25px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: #101f32;
+      border: 1px solid #263951;
+      border-radius: 12px;
+      padding: 15px;
+    }
+    .asset { color: #a8bdd5; font-size: 13px; }
+    .price { font-size: 21px; font-weight: bold; margin: 12px 0 7px; }
+    .note { font-size: 11px; color: #f4c66a; }
+    .panel {
+      background: #101f32;
+      border: 1px solid #263951;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 12px;
+    }
+    button {
+      border: 0;
+      border-radius: 8px;
+      background: #1689d4;
+      color: white;
+      padding: 12px 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid #344963;
+      background: #091525;
+      color: white;
+    }
+    .muted { color: #9eb2ca; font-size: 13px; line-height: 1.6; }
+    footer {
+      padding: 25px 16px;
+      text-align: center;
+      color: #8297b0;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">APOGEU • MERCADOS GLOBAIS</div>
+    <h1>APG Intelligence Financeiro</h1>
+    <div class="sub">Inteligência econômica, notícias e monitoramento de ativos</div>
+  </header>
+
+  <main>
+    <div class="status">
+      ● PAINEL INICIAL ATIVO
+      <div class="muted">As cotações reais e as notícias ao vivo serão integradas nas próximas etapas.</div>
+    </div>
+
+    <h2>Mercados monitorados</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="asset">GOLD / XAUUSD</div>
+        <div class="price">A integrar</div>
+        <div class="note">Ouro • M5 / M15</div>
+      </div>
+      <div class="card">
+        <div class="asset">BTC / USDT</div>
+        <div class="price">A integrar</div>
+        <div class="note">Bitcoin • M5 / M15</div>
+      </div>
+      <div class="card">
+        <div class="asset">BRENT</div>
+        <div class="price">A integrar</div>
+        <div class="note">Petróleo • M5 / M15</div>
+      </div>
+      <div class="card">
+        <div class="asset">JP225</div>
+        <div class="price">A integrar</div>
+        <div class="note">Índice do Japão</div>
+      </div>
+      <div class="card">
+        <div class="asset">US30</div>
+        <div class="price">A integrar</div>
+        <div class="note">Índice americano</div>
+      </div>
+      <div class="card">
+        <div class="asset">UT100</div>
+        <div class="price">A integrar</div>
+        <div class="note">Confirmar símbolo do ativo</div>
+      </div>
+    </div>
+
+    <h2>Central de notícias</h2>
+    <div class="panel">
+      <strong>Notícias econômicas</strong>
+      <p class="muted">
+        Área preparada para notícias verificadas, decisões de bancos
+        centrais, inflação, emprego, PIB, estoques de petróleo e discursos
+        que possam movimentar os mercados.
+      </p>
+      <p class="muted">Nenhuma notícia ao vivo está conectada nesta versão inicial.</p>
+    </div>
+
+    <h2>Calendário econômico</h2>
+    <div class="panel">
+      <strong>Próximos eventos</strong>
+      <p class="muted">
+        Área destinada ao horário previsto, horário oficial de publicação
+        e horário em que cada evento foi detectado pelo sistema.
+      </p>
+    </div>
+
+    <h2>Consultar um ativo</h2>
+    <div class="panel">
+      <label for="ativo">Selecione o mercado</label>
+      <select id="ativo">
+        <option>GOLD / XAUUSD</option>
+        <option>BTC / USDT</option>
+        <option>BRENT</option>
+        <option>JP225</option>
+        <option>US30</option>
+        <option>UT100</option>
+      </select>
+      <button onclick="consultar()">Consultar ativo</button>
+      <p id="resultado" class="muted" aria-live="polite"></p>
+    </div>
+
+    <h2>Sobre o sistema</h2>
+    <div class="panel">
+      <p class="muted">
+        O APG Intelligence Financeiro está em desenvolvimento.
+        Este painel é uma estrutura inicial. Dados de mercado,
+        fontes de notícias, alertas automáticos e calendário econômico
+        precisam ser conectados e testados antes de uso operacional.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    APG Intelligence Financeiro © 2026<br>
+    Informação financeira não constitui recomendação de investimento.
+  </footer>
+
+  <script>
+    function consultar() {
+      const ativo = document.getElementById("ativo").value;
+      document.getElementById("resultado").textContent =
+        "Ativo selecionado: " + ativo +
+        ". A integração de dados reais será realizada na próxima etapa.";
+    }
+  </script>
+</body>
+</html>
